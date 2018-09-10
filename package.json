@@ -1,0 +1,60 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "description": "Spotify Wrapper",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "npm test -- --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "lines": 80,
+    "functions": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/tests/**/*.spec.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devfabiocicero/spotify-wrapper.git"
+  },
+  "keywords": [
+    "js",
+    "js tdd",
+    "boilerplate js tdd",
+    "boilerplate js tests",
+    "js with tests"
+  ],
+  "author": "Fabio Cicero <devfabiocicero@gmail.com> (http://linkedin.com/devfabiocicero)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devfabiocicero/spotify-wrapper/issues"
+  },
+  "homepage": "https://github.com/devfabiocicero/spotify-wrapper#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.2.0",
+    "nyc": "^13.0.1",
+    "sinon": "^6.2.0",
+    "sinon-chai": "^3.2.0",
+    "sinon-stub-promise": "^4.0.0"
+  },
+  "dependencies": {}
+}
