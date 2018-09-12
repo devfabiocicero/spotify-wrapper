@@ -2,9 +2,7 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import sinonStubPromise from 'sinon-stub-promise';
 chai.use(sinonChai);
-sinonStubPromise(sinon);
 
 global.fetch = require('node-fetch');
 
@@ -37,9 +35,13 @@ describe('Spotify Wrapper', () => {
 
     describe('Generic Search', () => {
         let fetchedStub;
+        let promise;
 
         beforeEach(() => {
             fetchedStub = sinon.stub(global, 'fetch'); //Stub on fetch method
+            promise = fetchedStub.resolves({
+                json: () => ({ album: 'name' })
+            });
         });
 
         afterEach(() => {
@@ -70,5 +72,13 @@ describe('Spotify Wrapper', () => {
                     .calledWith('https://api.spotify.com/v1/search?q=Incubus&type=artist,album');
             });
         }); 
+
+        it('should return the JSON Data from the Promise', () => {
+            const album = search('Incubus', 'album');
+
+            album.then((data) => {
+                expect(data).to.be.eql({ album: 'name' });
+            });
+        });
     });
 }); 
