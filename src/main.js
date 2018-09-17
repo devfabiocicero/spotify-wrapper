@@ -4,16 +4,16 @@ const search = (query, type) => {
 		.then(data => data.json())
 };
 const searchAlbums = (query) => {
-	search(query, 'album');
+	return search(query, 'album');
 };
 const searchArtists = (query) => {
-	search(query, 'artist');
+	return search(query, 'artist');
 };
 const searchTracks = (query) => {
-	search(query, 'track');
+	return search(query, 'track');
 };
 const searchPlaylists = (query) => {
-	search(query, 'playlist');
+	return search(query, 'playlist');
 };
 
 export {
