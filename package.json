@@ -2,7 +2,7 @@
   "name": "spotify-wrapper",
   "version": "1.0.0",
   "description": "Spotify Wrapper",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint",
@@ -40,20 +40,20 @@
   },
   "homepage": "https://github.com/devfabiocicero/spotify-wrapper#readme",
   "devDependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "chai": "^4.1.2",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.10.0",
-    "husky": "^0.14.3",
-    "mocha": "^5.2.0",
-    "node-fetch": "^2.2.0",
-    "nyc": "^13.0.1",
-    "sinon": "^6.2.0",
-    "sinon-chai": "^3.2.0"
+    "babel-preset-env": "1.7.0",
+    "babel-register": "6.26.0",
+    "chai": "4.1.2",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "7.10.0",
+    "husky": "0.14.3",
+    "mocha": "5.2.0",
+    "node-fetch": "2.2.0",
+    "nyc": "13.0.1",
+    "sinon": "6.2.0",
+    "sinon-chai": "3.2.0"
   },
   "dependencies": {}
 }

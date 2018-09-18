@@ -102,12 +102,12 @@ describe('Album', () => {
       const tracks2 = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGOp');
       expect(stubedFetch).to.have.been
         .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGOp/tracks');
-    }); 
+    });
 
     it('should receive the correct data from the promise', () => {
       const tracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGOp');
 
       tracks.then(data => expect(data).to.have.eql({ album: 'name' }));
-    }); 
+    });
   });
 });
