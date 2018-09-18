@@ -4,6 +4,9 @@
   "description": "Spotify Wrapper",
   "main": "src/index.js",
   "scripts": {
+    "clear": "./node_modules/.bin/rimraf lib",
+    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
@@ -40,6 +43,7 @@
   },
   "homepage": "https://github.com/devfabiocicero/spotify-wrapper#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-register": "6.26.0",
     "chai": "4.1.2",
@@ -52,6 +56,7 @@
     "mocha": "5.2.0",
     "node-fetch": "2.2.0",
     "nyc": "13.0.1",
+    "rimraf": "^2.6.2",
     "sinon": "6.2.0",
     "sinon-chai": "3.2.0"
   },
