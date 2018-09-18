@@ -1,12 +1,10 @@
 
-//getAlbum
-//getAlbumTracks
-
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import {
   getAlbum,
+  getAlbums,
   getAlbumTracks
 } from '../src/album';
 
@@ -57,7 +55,6 @@ describe('Album', () => {
         .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTk');
     });
 
-    //verify the receive data from the promise
     it('should receive the correct data from the promise', () => {
       const album = getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
 
@@ -65,5 +62,52 @@ describe('Album', () => {
         expect(data).to.be.eql({ album: 'name' });
       });
     });
+  });
+
+  describe('getAlbums', () => {
+
+    it('should call fetch function', () => {
+      const albums = getAlbums();
+      expect(stubedFetch).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with correct URL', () => {
+      const albums = getAlbums(['4aawyAB9vmqN3uQ7FjRGTy', '4aawyAB9vmqN3uQ7FjRGTk']);
+      expect(stubedFetch).to.have.been
+        .calledWith('https://api.spotify.com/v1/albums/?ids=4aawyAB9vmqN3uQ7FjRGTy,4aawyAB9vmqN3uQ7FjRGTk');
+
+      const albums2 = getAlbums(['4aawyAB9vmqN3uQ7FjRGUa', '4aawyAB9vmqN3uQ7FjRGOp']);
+      expect(stubedFetch).to.have.been
+        .calledWith('https://api.spotify.com/v1/albums/?ids=4aawyAB9vmqN3uQ7FjRGUa,4aawyAB9vmqN3uQ7FjRGOp');
+    });
+
+    it('should receive the correct data from the promise', () => {
+      const albums = getAlbums(['4aawyAB9vmqN3uQ7FjRGTy', '4aawyAB9vmqN3uQ7FjRGTk']);
+      albums.then(data => expect(data).to.have.eql({ album: 'name' }));
+    });
+  });
+
+  describe('getAlbumTracks', () => {
+
+    it('should call fetch function', () => {
+      const tracks = getAlbumTracks();
+      expect(stubedFetch).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with correct URL', () => {
+      const tracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy');
+      expect(stubedFetch).to.have.been
+        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks');
+
+      const tracks2 = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGOp');
+      expect(stubedFetch).to.have.been
+        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGOp/tracks');
+    }); 
+
+    it('should receive the correct data from the promise', () => {
+      const tracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGOp');
+
+      tracks.then(data => expect(data).to.have.eql({ album: 'name' }));
+    }); 
   });
 });
