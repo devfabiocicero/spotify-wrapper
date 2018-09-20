@@ -6,6 +6,10 @@
   Spotify Wrapper
   <br>
 </h1>
+<p align="center">
+A wrapper to work with the [Spotify Web API]
+(https://developer.spotify.com/documentation/web-api/).
+</p>
 
 <h4 align="center">Spotify Wrapper</h4>
 
@@ -29,7 +33,7 @@ $ cd spotify-wrapper
 $ npm install
 
 # Run the app
-$ npm start
+$ Test the methods: examples/index.html
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
