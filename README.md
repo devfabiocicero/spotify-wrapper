@@ -5,6 +5,7 @@
   <br>
   Spotify Wrapper
   <br>
+  [![Build Status](https://travis-ci.com/devfabiocicero/spotify-wrapper.svg?branch=master)](https://travis-ci.com/devfabiocicero/spotify-wrapper)
 </h1>
 <p align="center">
 A wrapper to work with the [Spotify Web API]
