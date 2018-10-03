@@ -11,7 +11,6 @@
     "build:umd:min": "webpack --config webpack.config.babel.js --output-filename spotify-wrapper.umd.min.js -p",
     "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "lint": "eslint src/*.js",
-    "prepush": "npm run lint",
     "test": "mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "npm test -- --watch",
     "test:coverage": "nyc npm test"
@@ -51,6 +50,7 @@
     "babel-preset-env": "1.7.0",
     "babel-register": "6.26.0",
     "chai": "4.1.2",
+    "coveralls": "^3.0.2",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "17.0.0",
     "eslint-plugin-import": "2.13.0",

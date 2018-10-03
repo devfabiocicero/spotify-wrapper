@@ -55,7 +55,6 @@ describe('Search', () => {
     });
 
     it('should receive the correct url to fetch', () => {
-
       context('passing one type', () => {
         const artists = search('Incubus', 'artist');
         expect(fetchedStub).to.have.been
@@ -83,7 +82,6 @@ describe('Search', () => {
   });
 
   describe('Albums Search', () => {
-
     it('should call fetch function', () => {
       const albums = searchAlbums('Incubus');
       expect(fetchedStub).to.have.been.calledOnce;
